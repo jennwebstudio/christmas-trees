@@ -1,0 +1,51 @@
+@font-face {
+  font-family: Cormorant;
+  font-weight: 700;
+  src: local("Cormorant-Bold"), local("Cormorant"),
+  url("../fonts/cormorant-v11-latin_cyrillic-700.woff2") format("woff2"),
+  url("../fonts/cormorant-v11-latin_cyrillic-700.woff") format("woff");
+  font-display: swap;
+}
+
+:root {
+  --main-color: #fff;
+  --second-color: #262626;
+  --one-color: #00654E;
+  --two-color: #006E55;
+  --three-color: #005844;
+  --main-bg-color: #005844;
+  --second-bg-color: #C0B487;
+  --trigger--color: #E5AB39;
+  box-sizing: border-box;
+}
+
+*, *::before,
+*::after {
+  box-sizing: inherit;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+body {
+  font-family: Arial, san-serif;
+  font-size: 18px;
+  letter-spacing: 0.04em;
+  color: var(--main-color);
+}
+
+h1, h2 {
+  font-family: Cormorant, serif;
+  font-size: 70px;
+  line-height: 100%;  
+  letter-spacing: 0.01em;
+  color: var(--main-color);
+}
+
+.container {
+  margin: 0 auto;
+  max-width: 1320px;
+  padding: 0 15px;
+}
