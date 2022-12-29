@@ -8,6 +8,23 @@
 
   <link rel="preload" href="fonts/cormorant-v11-latin_cyrillic-700.woff2" as="font" type="font/woff2"
     crossorigin>
+
+  <style>
+    :root {
+      --main-color: #fff;
+      --second-color: #262626;
+      --one-color: #006E55;
+      --two-color: #00654E;
+      --three-color: #005844;
+      --main-bg-color: #005844;
+      --second-bg-color: #C0B487;
+      --trigger-color: #E5AB39;
+      --url-features-one: url('../images/tree.svg');
+      --url-features-two: url('../images/christmas-decorations.svg');
+      --url-features-three: url('../images/flowers.svg');
+      --url-features-four: url('../images/delivery-truck.svg');
+    }
+  </style>
   <link rel="stylesheet" href="style/normalize.css">
   <link rel="stylesheet" href="style/default.css">
   <link rel="stylesheet" href="style/logo.css">
@@ -15,6 +32,8 @@
   <link rel="stylesheet" href="style/burger.css">
   <link rel="stylesheet" href="style/navigation.css">
   <link rel="stylesheet" href="style/hero.css">
+  <link rel="stylesheet" href="style/features.css">
+  <link rel="stylesheet" href="style/product.css">
 
 </head>
 <body>
@@ -75,23 +94,72 @@
 
     <section class="features">
       <div class="container">
-
+        <h2 class="visually-hidden">Преимущества</h2>
+        <ul class="features__list">
+          <li class="features__item features__item_one">Пушистые и ароматные ёлочки</li>
+          <li class="features__item features__item_two">Набор ёлочных украшений в подарок</li>
+          <li class="features__item features__item_three">Ёлочки сохранят свежесть надолго</li>
+          <li class="features__item features__item_four">Доставим ёлочку за наш счет</li>
+        </ul>
       </div>
     </section>
 
     <section class="product" id="one">
-      <div class="container">
-
+      <div class="container product__container">
+        <div class="product__content">
+          <h2 class="product__title">Пихта Фразера</h2>
+          <p class="product__features">
+            Пихта Фразера чаще использовалась в качестве рождественской ёлки Белого дома
+          </p>
+          <p class="product__description">
+            Мягкий аромат, форма, и способность сохранять мягкие иголки в течение длительного времени, делают её одним из лучших деревьев для Рождества
+          </p>
+          <div class="product__button-wrapper">
+            <button class="product__button product__button_order">Заказать</button>
+            <a class="product__button product__button_more" href="#">Подробнее</a>
+          </div>
+        </div>
+        <img class="product__picture" src="images/freizer-fir.jpg" width="630" height="590" alt="пихта Фразера">
       </div>
     </section>
+
     <section class="product" id="two">
-      <div class="container">
-
+      <div class="container product__container">
+        <div class="product__content">
+          <h2 class="product__title">Пихта Фразера</h2>
+          <p class="product__features">
+            Пихта Фразера чаще использовалась в качестве рождественской ёлки Белого дома
+          </p>
+          <p class="product__description">
+            Мягкий аромат, форма, и способность сохранять мягкие иголки в течение длительного времени, делают её одним из
+            лучших деревьев для Рождества
+          </p>
+          <div class="product__button-wrapper">
+            <button class="product__button product__button_order">Заказать</button>
+            <a class="product__button product__button_more" href="#">Подробнее</a>
+          </div>
+        </div>
+        <img class="product__picture" src="images/freizer-fir.jpg" width="630" height="590" alt="пихта Фразера">
       </div>
     </section>
-    <section class="product" id="three">
-      <div class="container">
 
+    <section class="product" id="three">
+      <div class="container product__container">
+        <div class="product__content">
+          <h2 class="product__title">Пихта Фразера</h2>
+          <p class="product__features">
+            Пихта Фразера чаще использовалась в качестве рождественской ёлки Белого дома
+          </p>
+          <p class="product__description">
+            Мягкий аромат, форма, и способность сохранять мягкие иголки в течение длительного времени, делают её одним из
+            лучших деревьев для Рождества
+          </p>
+          <div class="product__button-wrapper">
+            <button class="product__button product__button_order">Заказать</button>
+            <a class="product__button product__button_more" href="#">Подробнее</a>
+          </div>
+        </div>
+        <img class="product__picture" src="images/freizer-fir.jpg" width="630" height="590" alt="пихта Фразера">
       </div>
     </section>
 
@@ -136,6 +204,74 @@
       </g>
     </symbol>
   </svg>
-  
+  <style>
+    body {
+      position: relative;
+    }
+
+    body::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: url('images/elka.png');
+      background-repeat: no-repeat;
+      pointer-events: none;
+      z-index: 1000;
+    }
+    .garland {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 36px;
+      background-image: url('images/christmas.png');
+      pointer-events: none;
+      z-index: 999;
+    }
+    .garland_1 {
+      background-position: 0 0;
+    }
+    .garland_2 {
+      background-position: 0 -36px;
+    }
+    .garland_3 {
+      background-position: 0 -72px;
+    }
+    .garland_4 {
+      background-position: 0 -108px;
+    }
+  </style>
+
+  <div class="garland garland_1"></div>
+
+  <script>
+    const garland = document.querySelector('.garland');
+    let order = 1;
+
+    setInterval(() => {
+      switch (order) {
+        case 1: 
+          garland.classList.add('garland_2');
+          garland.classList.remove('garland_1');
+          order = 2;
+          break;
+        case 2:
+          garland.classList.add('garland_3');
+          garland.classList.remove('garland_2');
+          order = 3;
+          break;
+        case 3:
+          garland.classList.add('garland_4');
+          garland.classList.remove('garland_3');
+          order = 4;
+          break;
+        case 4:
+          garland.classList.add('garland_1');
+          garland.classList.remove('garland_4');
+          order = 1;
+          break;
+      }
+    }, 500);
+  </script>
 </body>
 </html>
