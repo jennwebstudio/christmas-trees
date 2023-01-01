@@ -1,11 +1,61 @@
 .burger {
+  position: relative;
   display: none;
+  --width: 21px;
+  --height: 14px;
+  --size-line: 2px;
+  --color: var(--main-bg-color);
+  width: var(--width);
+  height: var(--height);
+  cursor: pointer;
+  background-color: transparent;
+  border: 0;
 }
 
-@media (max-width: 1440px) {
+.burger::before, 
+.burger::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: var(--size-line);
+  background-color: var(--color);
+  transition: transform .3s ease-out, top .3s ease-out;
 }
 
-@media (max-width: 1200px) {}
+.burger::before {
+  top: 0;
+}
+
+.burger::after {
+  top: calc(100% - var(--size-line));
+}
+
+.burger_active .burger__line {
+  transform: translateY(-50%) scale(0);
+}
+
+.burger_active::before {
+  top: 50%;
+  transform: rotate(-45deg);
+}
+
+.burger_active::after {
+  top: 50%;
+  transform: rotate(45deg);
+  bottom: auto;
+}
+
+.burger__line {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 50%;
+  height: var(--size-line);
+  transform: translateY(-50%) scale(1);
+  background-color: var(--color);
+  transition: transform .3s ease-out;
+}
 
 @media (max-width: 1000px) {
   .burger {
@@ -13,6 +63,9 @@
   }
 }
 
-@media (max-width: 760px) {}
-
-@media (max-width: 580px) {}
+@media (max-width: 580px) {
+  .burger {
+    --width: 18px;
+    --height: 12px;
+  }
+}

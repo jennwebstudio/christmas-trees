@@ -37,7 +37,12 @@
   <link rel="stylesheet" href="style/pay.css">
   <link rel="stylesheet" href="style/option-pay.css">
   <link rel="stylesheet" href="style/footer.css">
-
+  <link rel="stylesheet" href="style/overlay.css">
+  <link rel="stylesheet" href="style/modal.css">
+  <script defer src="js/burger.js"></script>
+  <script defer src="js/modal.js"></script>
+  <script defer src="garland/garland.js"></script>
+  <script defer src="snow/snow.js"></script>
 </head>
 <body>
 
@@ -55,16 +60,16 @@
       <nav class="header__navigation navigation">
         <ul class="navigation__list">
           <li class="navigation__item">
-            <a class="navigation__link" href="#">Пихта Фразера</a>
+            <a  class="navigation__link" href="#one">Пихта Фразера</a>
           </li>
           <li class="navigation__item">
-            <a class="navigation__link" href="#">Русская ель</a>
+            <a  class="navigation__link" href="#two">Русская ель</a>
           </li>
           <li class="navigation__item">
-            <a class="navigation__link" href="#">Сибирская пихта</a>
+            <a  class="navigation__link" href="#three">Сибирская пихта</a>
           </li>
           <li class="navigation__item">
-            <a class="navigation__link" href="#">Как оплатить?</a>
+            <a  class="navigation__link" href="#pay">Как оплатить?</a>
           </li>
         </ul>
       </nav>
@@ -118,7 +123,7 @@
             Мягкий аромат, форма, и способность сохранять мягкие иголки в течение длительного времени, делают её одним из лучших деревьев для Рождества
           </p>
           <div class="product__button-wrapper">
-            <button class="product__button product__button_order">Заказать</button>
+            <button class="product__button product__button_order" data-order="Пихта Фразера">Заказать</button>
             <a class="product__button product__button_more" href="#">Подробнее</a>
           </div>
         </div>
@@ -129,44 +134,46 @@
     <section class="product" id="two">
       <div class="container product__container">
         <div class="product__content">
-          <h2 class="product__title">Пихта Фразера</h2>
+          <h2 class="product__title">Русская ель</h2>
           <p class="product__features">
-            Пихта Фразера чаще использовалась в качестве рождественской ёлки Белого дома
+            Русская ель — наиболее традиционная разновидность рождественских деревьев, которую можно встретить
+            в большинстве советских фильмов про новый год
           </p>
           <p class="product__description">
-            Мягкий аромат, форма, и способность сохранять мягкие иголки в течение длительного времени, делают её одним из
-            лучших деревьев для Рождества
+            Отличительной особенностью русской ёлки являются выраженный хвойный запах, короткие колючие иголки и сравнительно менее
+            пышная крона
           </p>
           <div class="product__button-wrapper">
-            <button class="product__button product__button_order">Заказать</button>
+            <button class="product__button product__button_order" data-order="Русская ель">Заказать</button>
             <a class="product__button product__button_more" href="#">Подробнее</a>
           </div>
         </div>
-        <img class="product__picture" src="images/freizer-fir.jpg" width="630" height="590" alt="пихта Фразера">
+        <img class="product__picture" src="images/russian-fir.jpg" width="630" height="590" alt="русская ель">
       </div>
     </section>
 
     <section class="product" id="three">
       <div class="container product__container">
         <div class="product__content">
-          <h2 class="product__title">Пихта Фразера</h2>
+          <h2 class="product__title">Сибирская пихта</h2>
           <p class="product__features">
-            Пихта Фразера чаще использовалась в качестве рождественской ёлки Белого дома
+            Пихта сибирская является одной из самых красивых
+            и ароматных хвойных пород и ее часто можно встретить в парках и садах
           </p>
           <p class="product__description">
-            Мягкий аромат, форма, и способность сохранять мягкие иголки в течение длительного времени, делают её одним из
-            лучших деревьев для Рождества
+            Хвоя Сибирской пихты в отличии от еловой крупнее, зеленее, совершенно
+            не колючая и мягкая как трава
           </p>
           <div class="product__button-wrapper">
-            <button class="product__button product__button_order">Заказать</button>
+            <button class="product__button product__button_order" data-order="Сибирская пихта">Заказать</button>
             <a class="product__button product__button_more" href="#">Подробнее</a>
           </div>
         </div>
-        <img class="product__picture" src="images/freizer-fir.jpg" width="630" height="590" alt="пихта Фразера">
+        <img class="product__picture" src="images/siberian-fir.jpg" width="630" height="590" alt="сибирская ель">
       </div>
     </section>
 
-    <section class="pay">
+    <section class="pay" id="pay">
       <div class="container">
         <h2 class="pay__title">Как можно оплатить</h2>
         <ul class="pay__list">
@@ -184,7 +191,7 @@
           <li class="pay__item">
             <article class="pay__option_pay option-pay">
               <div class="option-pay__picture-wrap">
-                <svg class="logo option-pay__picture" viewbox="0 0 164 76">
+                <svg class="logo option-pay__picture" width="164" height="76" viewbox="0 0 164 76">
                   <use xlink:href="#logo" />
                 </svg>
               </div>
@@ -289,6 +296,35 @@
     </div>
   </footer>
 
+  <div class="overlay overlay__order">
+    <div class="modal">
+      <button class="modal__close">
+        <svg width="24" height="24" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path
+            d="M19 6.41L17.59 5L12 10.59L6.41 5L5 6.41L10.59 12L5 17.59L6.41 19L12 13.41L17.59 19L19 17.59L13.41 12L19 6.41Z"
+            fill="currentColor" />
+        </svg>
+      </button>
+      <h2 class="modal__title">Оформить заказ</h2>
+      <form class="modal__form" action="https://jsonplaceholder.typicode.com/posts" method="post">
+        <label class="modal__label">
+          <span class="modal__label-text">ФИО</span>
+          <input class="modal__input" type="text" name="bio" placeholder="Введите ваше ФИО" required>
+        </label>
+        <label class="modal__label modal__label-end">
+          <span class="modal__label-text">Телефон</span>
+          <input class="modal__input" type="tel" name="phone" placeholder="Введите ваш номер телефона" required>
+        </label>
+        <input class="modal__order" type="hidden" name="order">
+        <button class="modal__button">Заказать звонок</button>
+      </form>
+    </div>
+  </div>
+
+  <div class="overlay overlay__consultation">
+
+  </div>
+
   <svg class="hide">
     <symbol id="logo" width="164" height="76" fill="none" xmlns="http://www.w3.org/2000/svg">
       <path
@@ -316,74 +352,6 @@
       </g>
     </symbol>
   </svg>
-  <style>
-    body {
-      position: relative;
-    }
-
-    body::after {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background-image: url('images/elka.png');
-      background-repeat: no-repeat;
-      pointer-events: none;
-      z-index: 1000;
-    }
-    .garland {
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 36px;
-      background-image: url('images/christmas.png');
-      pointer-events: none;
-      z-index: 999;
-    }
-    .garland_1 {
-      background-position: 0 0;
-    }
-    .garland_2 {
-      background-position: 0 -36px;
-    }
-    .garland_3 {
-      background-position: 0 -72px;
-    }
-    .garland_4 {
-      background-position: 0 -108px;
-    }
-  </style>
-
-  <div class="garland garland_1"></div>
-
-  <script>
-    const garland = document.querySelector('.garland');
-    let order = 1;
-
-    setInterval(() => {
-      switch (order) {
-        case 1: 
-          garland.classList.add('garland_2');
-          garland.classList.remove('garland_1');
-          order = 2;
-          break;
-        case 2:
-          garland.classList.add('garland_3');
-          garland.classList.remove('garland_2');
-          order = 3;
-          break;
-        case 3:
-          garland.classList.add('garland_4');
-          garland.classList.remove('garland_3');
-          order = 4;
-          break;
-        case 4:
-          garland.classList.add('garland_1');
-          garland.classList.remove('garland_4');
-          order = 1;
-          break;
-      }
-    }, 500);
-  </script>
+  
 </body>
 </html>
