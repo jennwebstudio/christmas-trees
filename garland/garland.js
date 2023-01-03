@@ -11,7 +11,7 @@ const createGarland = () => {
         position: relative;
       }
 
-      /* body::after {
+      body::after {
         content: '';
         position: fixed;
         inset: 0;
@@ -19,7 +19,8 @@ const createGarland = () => {
         background-repeat: no-repeat;
         pointer-events: none;
         z-index: 1000;
-      }*/
+      }
+
       .garland {
         position: fixed;
         top: 0;
@@ -41,6 +42,12 @@ const createGarland = () => {
       }
       .garland_4 {
         background-position: 0 -108px;
+      }
+
+      @media (max-width: 1000px) {
+        body::after {
+          display: none;
+        }
       }
       `;
       document.head.append(style);
